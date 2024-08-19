@@ -24,6 +24,12 @@ def main():
         flag = 0
     return(render_template("main.html",r=user_name))
 
+@app.route("/joke", methods=["GET"])
+def joke():
+    joke_text = ("The only thing faster than Singapore's MRT during peak hours is the way we "
+                 "chope seats with a tissue packet.")
+    return render_template("joke.html", joke=joke_text)
+
 @app.route("/prediction",methods=["GET","POST"])
 def prediction():
     return(render_template("prediction.html"))
