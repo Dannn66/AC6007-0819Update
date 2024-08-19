@@ -65,7 +65,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Hi, {{r}}, how can I help you today?</h2>
+        <h2>Hi, {{ r }}, how can I help you today?</h2>
         <form action="/prediction" method="post">
             <input type="submit" value="Share Price Prediction">
         </form>
@@ -74,6 +74,9 @@
         </form>
         <form action="/" method="post">
             <input type="submit" value="End">
+        </form>
+        <form action="/joke" method="get">
+            <input type="submit" value="Show Singapore Joke">
         </form>
     </div>
 </body>
