@@ -16,16 +16,13 @@ def index():
     flag = 1
     return(render_template("index.html"))
 
-@app.route("/main", methods=["GET", "POST"])
+@app.route("/main",methods=["GET","POST"])
 def main():
-    if session.get('flag', 0) == 1:
-        session['user_name'] = request.form.get("q")
-        session['flag'] = 0  # Reset flag to 0
-    
-    joke = session.get('joke', None)  # Retrieve the joke from the session
-    
-    return render_template("main.html", r=session['user_name'], joke=joke)
-
+    global flag,user_name
+    if flag==1:
+        user_name = request.form.get("q")
+        flag = 0
+    return(render_template("main.html",r=user_name))
 
 @app.route("/joke", methods=["GET"])
 def joke():
